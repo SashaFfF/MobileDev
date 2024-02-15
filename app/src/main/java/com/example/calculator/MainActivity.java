@@ -211,31 +211,87 @@ public class MainActivity extends AppCompatActivity {
         bt_sin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"sin");
+                String expression = tv_main.getText().toString();
+
+                //  '*' перед sin, если предыдущий символ - цифра
+                if (!expression.isEmpty()) {
+                    char lastChar = expression.charAt(expression.length() - 1);
+                    if (Character.isDigit(lastChar) || lastChar==')') {
+                        tv_main.setText(expression + "×sin");
+                    } else {
+                        tv_main.setText(expression + "sin");
+                    }
+                } else {
+                    tv_main.setText("sin");
+                }
             }
         });
         bt_cos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"cos");
+                String expression = tv_main.getText().toString();
+
+                if (!expression.isEmpty()) {
+                    char lastChar = expression.charAt(expression.length() - 1);
+                    if (Character.isDigit(lastChar) || lastChar==')') {
+                        tv_main.setText(expression + "×cos");
+                    } else {
+                        tv_main.setText(expression + "cos");
+                    }
+                } else {
+                    tv_main.setText("cos");
+                }
             }
         });
         bt_tg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"tg");
+                String expression = tv_main.getText().toString();
+
+                if (!expression.isEmpty()) {
+                    char lastChar = expression.charAt(expression.length() - 1);
+                    if (Character.isDigit(lastChar) || lastChar==')') {
+                        tv_main.setText(expression + "×tg");
+                    } else {
+                        tv_main.setText(expression + "tg");
+                    }
+                } else {
+                    tv_main.setText("tg");
+                }
             }
         });
         bt_ctg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"ctg");
+                String expression = tv_main.getText().toString();
+
+                if (!expression.isEmpty()) {
+                    char lastChar = expression.charAt(expression.length() - 1);
+                    if (Character.isDigit(lastChar) || lastChar==')') {
+                        tv_main.setText(expression + "×ctg");
+                    } else {
+                        tv_main.setText(expression + "ctg");
+                    }
+                } else {
+                    tv_main.setText("ctg");
+                }
             }
         });
         bt_log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"log");
+                String expression = tv_main.getText().toString();
+
+                if (!expression.isEmpty()) {
+                    char lastChar = expression.charAt(expression.length() - 1);
+                    if (Character.isDigit(lastChar) || lastChar==')') {
+                        tv_main.setText(expression + "×log");
+                    } else {
+                        tv_main.setText(expression + "log");
+                    }
+                } else {
+                    tv_main.setText("log");
+                }
             }
         });
         bt_square.setOnClickListener(new View.OnClickListener() {
@@ -339,7 +395,8 @@ public class MainActivity extends AppCompatActivity {
                     if (func.equals("sqrt")) x = Math.sqrt(x);
                     else if (func.equals("sin")) x = Math.sin(Math.toRadians(x));
                     else if (func.equals("cos")) x = Math.cos(Math.toRadians(x));
-                    else if (func.equals("tan")) x = Math.tan(Math.toRadians(x));
+                    else if (func.equals("tg")) x = Math.tan(Math.toRadians(x));
+                    else if (func.equals("ctg")) x = 1/Math.tan(Math.toRadians(x));
                     else if (func.equals("log")) x = Math.log10(x);
                     else if (func.equals("ln")) x = Math.log(x);
                     else throw new RuntimeException("Unknown function: " + func);

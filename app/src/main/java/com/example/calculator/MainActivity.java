@@ -120,7 +120,23 @@ public class MainActivity extends AppCompatActivity {
         bt_dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+".");
+                String expression = tv_main.getText().toString();
+
+                // Разделяем выражение на отдельные числа и операторы
+                String[] tokens = expression.split("(?<=[-+*/^()])|(?=[-+*/^()])");
+
+                // Проверяем последний токен на наличие десятичной точки
+                String lastToken = tokens[tokens.length - 1];
+                boolean isAfterBracket = lastToken.equals(")");
+
+                if (!lastToken.contains(".") && !isAfterBracket) {
+                    //После триг. функций хочу, чтобы писалась не просто точка, а "0."
+                    if (lastToken.matches("sin|cos|tg|ctg|ln")) {
+                        tv_main.setText(expression + "0.");
+                    } else {
+                        tv_main.setText(expression + ".");
+                    }
+                }
             }
         });
         bt_ac.setOnClickListener(new View.OnClickListener() {
@@ -230,14 +246,14 @@ public class MainActivity extends AppCompatActivity {
                 tv_sec.setText(number+"²");
             }
         });
-        bt_sqrt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                double number = Double.parseDouble(tv_main.getText().toString());
-                tv_main.setText(String.valueOf(Math.sqrt(number)));
-                tv_sec.setText("√"+number);
-            }
-        });
+//        bt_sqrt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                double number = Double.parseDouble(tv_main.getText().toString());
+//                tv_main.setText(String.valueOf(Math.sqrt(number)));
+//                tv_sec.setText("√"+number);
+//            }
+//        });
         bt_inv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

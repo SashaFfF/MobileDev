@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tv_sec"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/background_color"
@@ -22,6 +23,7 @@
         android:layout_weight="1">
     </TextView>
     <TextView
+        android:id="@+id/tv_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/background_color"
@@ -44,6 +46,74 @@
             android:weightSum="7"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:id="@+id/bt_sin"
+                        android:text="sin"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"
+                        android:textColor="@color/text_color"
+                        android:background="#000"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Button>
+                    <Button
+                        android:id="@+id/bt_cos"
+                        android:text="cos"
+                        android:textAllCaps="false"
+                        android:textSize="19sp"
+                        android:textColor="@color/text_color"
+                        android:background="#000"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Button>
+                    <Button
+                        android:id="@+id/bt_tg"
+                        android:text="tg"
+                        android:textAllCaps="false"
+                        android:textSize="22sp"
+                        android:textColor="@color/text_color"
+                        android:background="#000"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Button>
+                    <Button
+                        android:id="@+id/bt_ctg"
+                        android:text="ctg"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"
+                        android:textColor="@color/text_color"
+                        android:background="#000"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Button>
+                    <Button
+                        android:id="@+id/bt_log"
+                        android:text="log"
+                        android:textAllCaps="false"
+                        android:textSize="20sp"
+                        android:textColor="@color/text_color"
+                        android:background="#000"
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </Button>
+                </LinearLayout>
+            </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_weight="1"
@@ -103,87 +173,9 @@
                 android:layout_height="match_parent">
                 <LinearLayout
                     android:orientation="horizontal"
-                    android:weightSum="5"
+                    android:weightSum="4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <Button
-                        android:id="@+id/bt_sin"
-                        android:text="sin"
-                        android:textAllCaps="false"
-                        android:textSize="30sp"
-                        android:textColor="@color/text_color"
-                        android:background="#000"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </Button>
-                    <Button
-                        android:id="@+id/bt_cos"
-                        android:text="cos"
-                        android:textAllCaps="false"
-                        android:textSize="30sp"
-                        android:textColor="@color/text_color"
-                        android:background="#000"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </Button>
-                    <Button
-                        android:id="@+id/bt_tg"
-                        android:text="tg"
-                        android:textAllCaps="false"
-                        android:textSize="30sp"
-                        android:textColor="@color/text_color"
-                        android:background="#000"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </Button>
-                    <Button
-                        android:id="@+id/bt_ctg"
-                        android:text="ctg"
-                        android:textAllCaps="false"
-                        android:textSize="30sp"
-                        android:textColor="@color/text_color"
-                        android:background="#000"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </Button>
-                    <Button
-                        android:id="@+id/bt_log"
-                        android:text="log"
-                        android:textAllCaps="false"
-                        android:textSize="30sp"
-                        android:textColor="@color/text_color"
-                        android:background="#000"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </Button>
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:weightSum="5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <Button
-                        android:id="@+id/bt_fact"
-                        android:text="x!"
-                        android:textAllCaps="false"
-                        android:textSize="30sp"
-                        android:textColor="@color/text_color"
-                        android:background="#000"
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                    </Button>
                     <Button
                         android:id="@+id/bt_square"
                         android:text="х²"

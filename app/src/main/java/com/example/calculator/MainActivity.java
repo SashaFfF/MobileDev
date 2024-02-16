@@ -185,13 +185,14 @@ public class MainActivity extends AppCompatActivity {
         bt_sqrt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                if(val.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Введите сначала число, из которого необходимо извлечь корень", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    double res = Math.sqrt(Double.parseDouble(val));
-                    tv_main.setText(String.valueOf(res));
+                if (canAddSquareRootOrSquare()) {
+                    String val = tv_main.getText().toString().replace(',', '.');
+                    if (val.isEmpty()) {
+                        Toast.makeText(MainActivity.this, "Введите сначала число для извлечения корня", Toast.LENGTH_SHORT).show();
+                    } else {
+                        double res = Math.sqrt(Double.parseDouble(val));
+                        tv_main.setText(String.valueOf(res));
+                    }
                 }
             }
         });
@@ -325,13 +326,15 @@ public class MainActivity extends AppCompatActivity {
         bt_square.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String val = tv_main.getText().toString();
-                if(val.isEmpty()){
-                    Toast.makeText(MainActivity.this, "Введите сначала число, которое необходимо возвести в квадрат", Toast.LENGTH_SHORT).show();
-                }else{
-                    double number = Double.parseDouble(val);
-                    tv_main.setText(String.valueOf(Math.pow(number, 2)));
-                    tv_sec.setText(number+"²");
+                if (canAddSquareRootOrSquare()) {
+                    String val = tv_main.getText().toString().replace(',', '.');
+                    if (val.isEmpty()) {
+                        Toast.makeText(MainActivity.this, "Введите сначала число для возведения в квадрат", Toast.LENGTH_SHORT).show();
+                    } else {
+                        double number = Double.parseDouble(val);
+                        tv_main.setText(String.valueOf(Math.pow(number, 2)));
+                        tv_sec.setText(number + "²");
+                    }
                 }
             }
         });
@@ -359,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String val = tv_main.getText().toString();
-                String replacedStr = val.replace('÷', '/').replace('×','*');
+                String replacedStr = val.replace('÷', '/').replace('×','*').replace(',', '.');
                 try {
                     double result = eval(replacedStr);
                     if (Double.isInfinite(result) || Double.isNaN(result)) {
@@ -397,6 +400,15 @@ public class MainActivity extends AppCompatActivity {
     }
     private boolean isOperator(char c) {
         return c == '+' || c == '-' || c == '×' || c == '÷';
+    }
+
+    private boolean canAddSquareRootOrSquare() {
+        String expression = tv_main.getText().toString();
+        if (!expression.isEmpty()) {
+            char lastChar = expression.charAt(expression.length() - 1);
+            return !(lastChar == 'n' || lastChar == 's' || lastChar == 'g' || lastChar == 't');
+        }
+        return true;
     }
 
 

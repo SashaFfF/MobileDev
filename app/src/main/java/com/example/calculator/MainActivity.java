@@ -192,13 +192,35 @@ public class MainActivity extends AppCompatActivity {
         btb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"(");
+                String expression = tv_main.getText().toString();
+
+                if (expression.charAt(expression.length() - 1) == ')' || Character.isDigit(expression.charAt(expression.length() - 1))) {
+                    tv_main.setText(expression + "×(");
+                } else {
+                    tv_main.setText(expression + "(");
+                }
             }
         });
         btb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+")");
+                String expression = tv_main.getText().toString();
+                int openBracketCount = 0;
+                int closeBracketCount = 0;
+
+                // Подсчет количества открывающих и закрывающих скобок
+                for (char c : expression.toCharArray()) {
+                    if (c == '(') {
+                        openBracketCount++;
+                    } else if (c == ')') {
+                        closeBracketCount++;
+                    }
+                }
+
+                // Проверка на то, что количество закрывающих скобок не превышает количество открывающих
+                if (openBracketCount > closeBracketCount && (expression.isEmpty() || Character.isDigit(expression.charAt(expression.length() - 1)) || expression.charAt(expression.length() - 1) == ')')) {
+                    tv_main.setText(expression + ")");
+                }
             }
         });
         bt_pi.setOnClickListener(new View.OnClickListener() {

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -159,25 +160,25 @@ public class MainActivity extends AppCompatActivity {
         bt_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"+");
+                handleOperatorClick("+");
             }
         });
         bt_min.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"-");
+                handleOperatorClick("-");
             }
         });
         bt_div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"÷");
+                handleOperatorClick("÷");
             }
         });
         bt_mul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"×");
+                handleOperatorClick("×");
             }
         });
 
@@ -343,12 +344,40 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String val = tv_main.getText().toString();
                 String replacedStr = val.replace('÷', '/').replace('×','*');
-                double result = eval(replacedStr);
-                tv_main.setText(String.valueOf(result));
-                tv_sec.setText(val);
+                try {
+                    double result = eval(replacedStr);
+                    tv_main.setText(String.valueOf(result));
+                    tv_sec.setText(val);
+                } catch (RuntimeException e) {
+                    Toast.makeText(MainActivity.this, "Hекорректное выражение", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
+
+    private void handleOperatorClick(String operator) {
+        String expression = tv_main.getText().toString();
+
+        // Проверяем, если строка пустая или у нас (, то не добавляем оператор
+        if (expression.isEmpty() || expression.charAt(expression.length() - 1) == '(') {
+            return;
+        }
+
+        // Проверяем, если последний символ в строке является оператором,
+        // то заменяем его на новый оператор
+        if (isOperator(expression.charAt(expression.length() - 1))) {
+            // Удаляем последний символ (старый оператор)
+            expression = expression.substring(0, expression.length() - 1);
+        }
+
+        // Добавляем новый оператор к текущему выражению
+        tv_main.setText(expression + operator);
+
+    }
+    private boolean isOperator(char c) {
+        return c == '+' || c == '-' || c == '×' || c == '÷';
+    }
+
 
     public static double eval(final String str) {
         return new Object() {

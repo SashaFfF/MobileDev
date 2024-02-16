@@ -186,8 +186,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String val = tv_main.getText().toString();
-                double res = Math.sqrt(Double.parseDouble(val));
-                tv_main.setText(String.valueOf(res));
+                if(val.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Введите сначала число, из которого необходимо извлечь корень", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    double res = Math.sqrt(Double.parseDouble(val));
+                    tv_main.setText(String.valueOf(res));
+                }
             }
         });
         btb1.setOnClickListener(new View.OnClickListener() {
@@ -320,9 +325,14 @@ public class MainActivity extends AppCompatActivity {
         bt_square.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                double number = Double.parseDouble(tv_main.getText().toString());
-                tv_main.setText(String.valueOf(Math.pow(number, 2)));
-                tv_sec.setText(number+"²");
+                String val = tv_main.getText().toString();
+                if(val.isEmpty()){
+                    Toast.makeText(MainActivity.this, "Введите сначала число, которое необходимо возвести в квадрат", Toast.LENGTH_SHORT).show();
+                }else{
+                    double number = Double.parseDouble(val);
+                    tv_main.setText(String.valueOf(Math.pow(number, 2)));
+                    tv_sec.setText(number+"²");
+                }
             }
         });
 //        bt_sqrt.setOnClickListener(new View.OnClickListener() {
@@ -336,7 +346,13 @@ public class MainActivity extends AppCompatActivity {
         bt_inv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"^"+"(-1)");
+                String val = tv_main.getText().toString();
+                if(val.isEmpty()){
+                    tv_main.setText(tv_main.getText()+"1^"+"(-1)");
+                }
+                else {
+                    tv_main.setText(tv_main.getText() + "^" + "(-1)");
+                }
             }
         });
         bt_equal.setOnClickListener(new View.OnClickListener() {
@@ -346,8 +362,13 @@ public class MainActivity extends AppCompatActivity {
                 String replacedStr = val.replace('÷', '/').replace('×','*');
                 try {
                     double result = eval(replacedStr);
-                    tv_main.setText(String.valueOf(result));
-                    tv_sec.setText(val);
+                    if (Double.isInfinite(result) || Double.isNaN(result)) {
+                        Toast.makeText(MainActivity.this, "Невозможно выполнить деление на ноль", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String formattedResult = String.format("%.6f", result);
+                        tv_main.setText(formattedResult);
+                        tv_sec.setText(val);
+                    }
                 } catch (RuntimeException e) {
                     Toast.makeText(MainActivity.this, "Hекорректное выражение", Toast.LENGTH_SHORT).show();
                 }

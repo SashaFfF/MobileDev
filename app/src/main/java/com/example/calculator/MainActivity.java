@@ -61,61 +61,172 @@ public class MainActivity extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"1");
+
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×1");
+                    }
+                    else {
+                        tv_main.setText(val + "1");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"2");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×2");
+                    }
+                    else {
+                        tv_main.setText(val + "2");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"3");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×3");
+                    }
+                    else {
+                        tv_main.setText(val + "3");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"4");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×4");
+                    }
+                    else {
+                        tv_main.setText(val + "4");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"5");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×5");
+                    }
+                    else {
+                        tv_main.setText(val + "5");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"6");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×6");
+                    }
+                    else {
+                        tv_main.setText(val + "6");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"7");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×7");
+                    }
+                    else {
+                        tv_main.setText(val + "7");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"8");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×8");
+                    }
+                    else {
+                        tv_main.setText(val + "8");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"9");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×9");
+                    }
+                    else {
+                        tv_main.setText(val + "9");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_main.setText(tv_main.getText()+"0");
+                if(!isLargeNumber()){
+                    String val = tv_main.getText().toString();
+                    if (!val.isEmpty() && val.charAt(val.length() - 1) == ')') {
+                        tv_main.setText(val+"×0");
+                    }
+                    else {
+                        tv_main.setText(val + "0");
+                    }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Невозможно ввести более 10 цифр", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         bt_dot.setOnClickListener(new View.OnClickListener() {
@@ -369,6 +480,12 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Невозможно выполнить деление на ноль", Toast.LENGTH_SHORT).show();
                     } else {
                         String formattedResult = String.format("%.6f", result);
+                        while(formattedResult.charAt(formattedResult.length() - 1)=='0'){
+                            formattedResult = formattedResult.substring(0, formattedResult.length() - 1);
+                        }
+                        if(formattedResult.charAt(formattedResult.length() - 1)=='.' || formattedResult.charAt(formattedResult.length() - 1)==','){
+                            formattedResult = formattedResult.substring(0, formattedResult.length() - 1);
+                        }
                         tv_main.setText(formattedResult);
                         tv_sec.setText(val);
                     }
@@ -409,6 +526,15 @@ public class MainActivity extends AppCompatActivity {
             return !(lastChar == 'n' || lastChar == 's' || lastChar == 'g' || lastChar == 't');
         }
         return true;
+    }
+    private boolean isLargeNumber(){
+        StringBuilder expression = new StringBuilder(tv_main.getText().toString());
+        int count = 0;
+        while(expression.length() > 0 && Character.isDigit(expression.charAt(expression.length()-1))){
+            count++;
+            expression.deleteCharAt(expression.length()-1);
+        }
+        return count > 9;
     }
 
 

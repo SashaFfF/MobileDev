@@ -298,7 +298,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (canAddSquareRootOrSquare()) {
                     String val = tv_main.getText().toString().replace(',', '.');
-                    if (val.isEmpty()) {
+                    if (val.isEmpty() || isOperator(val.charAt(val.length() - 1)) || val.charAt(val.length() - 1)==')' || val.charAt(val.length() - 1) == '(')
+                    {
                         Toast.makeText(MainActivity.this, "Введите сначала число для извлечения корня", Toast.LENGTH_SHORT).show();
                     } else {
                         double res = Math.sqrt(Double.parseDouble(val));
@@ -439,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (canAddSquareRootOrSquare()) {
                     String val = tv_main.getText().toString().replace(',', '.');
-                    if (val.isEmpty()) {
+                    if (val.isEmpty() || isOperator(val.charAt(val.length() - 1)) || val.charAt(val.length() - 1)==')' || val.charAt(val.length() - 1) == '(') {
                         Toast.makeText(MainActivity.this, "Введите сначала число для возведения в квадрат", Toast.LENGTH_SHORT).show();
                     } else {
                         double number = Double.parseDouble(val);
